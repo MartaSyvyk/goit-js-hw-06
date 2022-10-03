@@ -17,9 +17,9 @@ const galleryEl = images.map(image => {
   let newItem = document.createElement("li");
    let newImageEl = document.createElement("img");
 
-  newImageEl.setAttribute("url", image.url);
+  newImageEl.setAttribute("src", image.url);
   newImageEl.setAttribute("alt", image.alt);
-  newImageEl.style.width = "240px";
+  newImageEl.style.width = "960px";
   newItem.append(newImageEl);
   return newItem;
   
@@ -28,4 +28,6 @@ const galleryEl = images.map(image => {
 const galleryListEl = document.querySelector(".gallery");
 galleryListEl.append(...galleryEl);
 galleryListEl.style.display = "flex"
+galleryListEl.style.flexDirection = "column"
 galleryListEl.style.gap = "10px"
+galleryListEl.style.listStyle = "none"
