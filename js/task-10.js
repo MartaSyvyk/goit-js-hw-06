@@ -22,6 +22,7 @@ const quantity = Number(event.currentTarget.value);
 createEl.addEventListener("click", onCreateButton);
 
 function onCreateButton () {
+
   let width = 20;
   let height = 20;
   const array = [];
@@ -46,6 +47,9 @@ console.log (array);
   };
 
 destinationEl.prepend(...array);
+  
+
+  
 
 const customContainers = document.querySelectorAll(".custom-container");
 
@@ -56,6 +60,7 @@ function onDeletebutton () {
 }
 }
 
+}
 
 
 
@@ -65,6 +70,5 @@ function onDeletebutton () {
 
 
 
-
-}; 
+; 
 
