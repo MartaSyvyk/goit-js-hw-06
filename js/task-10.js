@@ -6,32 +6,65 @@ function getRandomHexColor() {
  const inputEl = document.querySelector("input");
  const createEl = document.querySelector("button[data-create]");
  const deleteEl = document.querySelector("button[data-destroy]");
+ const destinationEl = document.querySelector("#boxes");
+ 
 
-function onInput (event) {
- let quantity = event.currentTarget.value;
- console.log(quantity);
+
+
 
 inputEl.addEventListener('input', onInput);
 
+function onInput (event) {
+const quantity = Number(event.currentTarget.value);
+ console.log (quantity);
+ 
 
-// createEl.addEventListener("click", onCreateClick);
+createEl.addEventListener("click", onCreateButton);
 
-// function onCreateClick () {
-//   let width = 20;
-//   let height = 20;
-//   for (let i = 0, i <= quantity, i += 1) {
-//   let containerEl = document.createElement("div");
-//   width += 10;
-//   height += 10;
-//   document.containerEl.style.width = "${width}px";
-//   document.containerEl.style.height = "${height}px";
-//   }  
+function onCreateButton () {
+  let width = 20;
+  let height = 20;
+  const array = [];
+for (let index = 1; index <= quantity; index += 1) {
 
-//   };
+  console.log(index);
+  let containerEl = document.createElement("div");
+  let randomColor = getRandomHexColor();
 
-
-
+  width += 10;
+  height += 10;
   
+  containerEl.style.width = `${width}px`;
+  containerEl.style.height = `${height}px`;
 
+  containerEl.style.backgroundColor = randomColor;
 
+  console.log(randomColor);
+  containerEl.classList.add("custom-container")
+    array.push(containerEl)
+console.log (array);
+  };
+
+destinationEl.prepend(...array);
+
+const customContainers = document.querySelectorAll(".custom-container");
+
+deleteEl.addEventListener("click", onDeletebutton);
+function onDeletebutton () {
+  customContainers.forEach(container => container.remove())
+  ;
 }
+}
+
+
+
+
+
+
+
+
+
+
+
+}; 
+
