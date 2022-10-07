@@ -13,21 +13,10 @@ const images = [
   },
 ];
 
-const galleryEl = images.map(image => {
-  let newItem = document.createElement("li");
-   let newImageEl = document.createElement("img");
+const galleryContainer = document.querySelector(".gallery");
 
-  newImageEl.setAttribute("src", image.url);
-  newImageEl.setAttribute("alt", image.alt);
-  newImageEl.style.width = "960px";
-  newItem.append(newImageEl);
-  return newItem;
+const newMarkup = images.map(({url, alt}) => 
+   `<li> <img src="${url}" alt="${alt}" style ="width: 960px;"> </li>`).join("");
   
-})
+ galleryContainer.insertAdjacentHTML("beforeend", newMarkup);
 
-const galleryListEl = document.querySelector(".gallery");
-galleryListEl.append(...galleryEl);
-galleryListEl.style.display = "flex"
-galleryListEl.style.flexDirection = "column"
-galleryListEl.style.gap = "10px"
-galleryListEl.style.listStyle = "none"

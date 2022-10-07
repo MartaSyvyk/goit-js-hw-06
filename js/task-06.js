@@ -3,40 +3,47 @@ const refs = {
 
 }
 
-refs.inputEl.addEventListener("input", onInputCheck);
+// refs.inputEl.addEventListener("input", onInputCheck);
 
-    function onInputCheck (event) {
+//     function onInputCheck (event) {
 
  
-let isValid = undefined;
+// let isValid = undefined;
 
-     if (event.currentTarget.value.length >= refs.inputEl.getAttribute("data-length")) {
+//      if (event.currentTarget.value.length >= refs.inputEl.getAttribute("data-length")) {
        
-          isValid = true;
-         }
-         else 
+//           isValid = true;
+//          }
+//          else 
         
-         isValid = false;
+//          isValid = false;
 
 
-         console.log(isValid);
+//          console.log(isValid);
  
 
 refs.inputEl.addEventListener("blur", onValidationCheck);
 
 function onValidationCheck () {
+
+    let isValid = event.currentTarget.value.length === +refs.inputEl.dataset.length;
+          
+    
           
     if (!isValid) {
 
  
-    refs.inputEl.classList.add("invalid");
-    refs.inputEl.classList.remove("valid"); 
+        refs.inputEl.classList.add("invalid");
+        refs.inputEl.classList.remove("valid"); 
+    
+return
+          
+        }
 
-    return;
-      
-    }
- 
-      refs.inputEl.classList.add("valid");  
-      refs.inputEl.classList.remove("invalid"); 
+  
+          refs.inputEl.classList.add("valid");  
+          refs.inputEl.classList.remove("invalid"); 
+   
 }
-     }  
+         
+     
